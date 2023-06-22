@@ -1,7 +1,10 @@
 
+
 const DetailPage = () => {
     return (
-        <div> DetailPage</div>
+        <div> <h1> DetailPage</h1>
+        
+        </div>
     )
 }
 

@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import OverviewPage from "./components/OverviewPage";
-import DetailPage from "./components/DetailPage";
+import OverviewPage from "./pages/OverviewPage";
+import DetailPage from "./pages/DetailPage";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<OverviewPage />} />
           
-        <Route path="/path2" element={<DetailPage />} />
+        <Route path="/detail/:symbol" element={<DetailPage />} />
       </Routes>
 
     </BrowserRouter>
