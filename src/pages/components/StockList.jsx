@@ -15,7 +15,7 @@ const StockList = () => {
                         }
                     })
                 }))
-                console.log(responses);
+                // console.log(responses);
                 const responseData = responses.map(res => {
                     return {
                         data: res.data,
@@ -39,7 +39,7 @@ const StockList = () => {
         }
     }, [])
     return (
-        <div>
+        <div className="table-responsive">
             <table className="table table-hover">
                 <thead>
                     <tr>
