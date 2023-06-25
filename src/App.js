@@ -1,18 +1,21 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AppProvider } from "./context";
 import OverviewPage from "./pages/OverviewPage";
 import DetailPage from "./pages/DetailPage";
 
 function App() {
   return (
-    <BrowserRouter>
+    <AppProvider>
+      <BrowserRouter>
 
-      <Routes>
-        <Route path="/" element={<OverviewPage />} />
-          
-        <Route path="/detail/:symbol" element={<DetailPage />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<OverviewPage />} />
 
-    </BrowserRouter>
+          <Route path="/detail/:symbol" element={<DetailPage />} />
+        </Routes>
+
+      </BrowserRouter>
+    </AppProvider>
   );
 }
 
