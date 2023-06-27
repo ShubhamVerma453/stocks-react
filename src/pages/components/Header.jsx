@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import finhub from "../../apis/finhub";
+import { UseGloblaContext } from "../../context";
 
 const Header = () => {
     const [search, setSearch] = useState("");
     const [result, setResult] = useState([]);
+
+    const { addToWatchList } = UseGloblaContext();
+
     useEffect(()=>{
         let isMounted = true;
         const fetchData = async () => {
@@ -38,7 +42,7 @@ const Header = () => {
                     {
                         result.map(item => {
                             return (
-                                <li key={item.symbol} className="dropdown-item">{item.description} - {item.symbol}</li>
+                                <li key={item.symbol} onClick={() => {addToWatchList(item.symbol)}} className="dropdown-item">{item.description} - {item.symbol}</li>
                             )
                         })
                     }

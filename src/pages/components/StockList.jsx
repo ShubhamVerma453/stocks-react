@@ -1,8 +1,9 @@
 import finhub from "../../apis/finhub";
 import { useState, useEffect } from "react";
+import { UseGloblaContext } from "../../context";
 
 const StockList = () => {
-    const [watchList, setWatchList] = useState(["MSFT", "AAPL", "NFLX"]);
+    const {watchList, deleteFromWatchList } = UseGloblaContext();
     const [watchListDetail, setWatchListDetail] = useState([]);
     useEffect(() => {
         let isMounted = true;
@@ -37,7 +38,7 @@ const StockList = () => {
             // console.log("disMountine");
             isMounted = false;
         }
-    }, [])
+    }, [watchList])
     return (
         <div className="table-responsive">
             <table className="table table-hover">
@@ -63,6 +64,7 @@ const StockList = () => {
                                 <td className={`text-${stock.data.d>0?"success":"danger"}`}>{stock.data.dp}</td>
                                 <td>{stock.data.h}</td>
                                 <td>{stock.data.l}</td>
+                                <td onClick={() => {deleteFromWatchList(stock.symbol)}}>{stock.data.l}</td>
                             </tr>
                         )
                     })}
