@@ -1,10 +1,17 @@
 import finhub from "../../apis/finhub";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { UseGloblaContext } from "../../context";
 
 const StockList = () => {
     const { watchList, deleteFromWatchList } = UseGloblaContext();
     const [watchListDetail, setWatchListDetail] = useState([]);
+
+    const navigator = useNavigate();
+    
+    function handelRowClick(symbol) {
+        navigator(`/detail/${symbol}`);
+    }
 
     useEffect(() => {
         let isMounted = true;
@@ -58,7 +65,7 @@ const StockList = () => {
                 <tbody>
                     {watchListDetail.map(stock => {
                         return (
-                            <tr key={stock.symbol} >
+                            <tr key={stock.symbol} onClick={()=>handelRowClick(stock.symbol)}>
                                 <th scope="row">{stock.symbol}</th>
                                 <td>{stock.data.c}</td>
                                 <td>{stock.data.pc}</td>
@@ -66,9 +73,9 @@ const StockList = () => {
                                 <td className={`text-${stock.data.d > 0 ? "success" : "danger"}`}>{stock.data.dp}</td>
                                 <td>{stock.data.h}</td>
                                 <td>{stock.data.l}</td>
-                                <td onClick={() => deleteFromWatchList(stock.symbol)}>
+                                {/* <td onClick={() => deleteFromWatchList(stock.symbol)}>
                                     <button type="button" className='btn btn-danger remove-btn'>Remove</button>
-                                </td>
+                                </td> */}
                             </tr>
                         )
                     })}
