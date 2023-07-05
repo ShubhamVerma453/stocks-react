@@ -28,7 +28,6 @@ export const StockChart = (props) => {
         let end = data[(data.length - 1)].y;
         return end-start > 0 ? ["#38E54D"] : ["#F44336"]
     }
-    console.log(chartColor());
     const option = {
         colors : chartColor(),
         title: {
