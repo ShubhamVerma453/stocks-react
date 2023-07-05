@@ -1,12 +1,13 @@
 import finhub from "../apis/finhub";
+import {StockChart } from "./components/StockChart"
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const customFormate = (data) => {
     return data.t.map((e, index) => {
         return {
-            t: e * 1000,
-            c: data.c[index]
+            x: e * 1000,
+            y: parseFloat(data.c[index]).toFixed(2)
         }
     })
 }
@@ -61,8 +62,11 @@ const DetailPage = () => {
         }
         fetchData();
     }, [currStock])
+
     return (
         <div> <h1> DetailPage {currStock}</h1>
+
+        {chartData.oneMonth !== undefined && <StockChart chartData={chartData} currStock={currStock}/>}
 
         </div>
     )

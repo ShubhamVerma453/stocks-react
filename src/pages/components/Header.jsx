@@ -17,7 +17,7 @@ const Header = () => {
                         q: search
                     }
                 })
-                console.log(response);
+                // console.log(response);
                 if (isMounted) {
                     setResult(response.data.result);
                 }

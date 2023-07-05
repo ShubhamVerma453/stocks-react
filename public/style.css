@@ -23,7 +23,7 @@ input:focus {
     cursor: pointer;
 }
 
-button {
+.remove-btn {
     opacity: 0;
 }
 
