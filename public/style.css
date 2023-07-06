@@ -3,6 +3,10 @@ body {
     padding: 3% 10%;
 }
 
+.logo-img {
+    width: 20%;
+}
+
 .header-box {
     margin: auto;
     max-width: 30rem;

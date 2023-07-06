@@ -15,7 +15,7 @@ export const AppProvider = ({ children }) => {
     }
 
     const deleteFromWatchList = (stock) => {
-        const data = watchList.filter(e => e != stock);
+        const data = watchList.filter(e => e !== stock);
         // console.log(data);
         setWatchList(data);
     }

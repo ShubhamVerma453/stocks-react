@@ -65,7 +65,7 @@ const DetailPage = () => {
     }, [currStock])
 
     return (
-        <div> <h1> DetailPage {currStock}</h1>
+        <div> <h1>{currStock} Detail</h1>
 
             {chartData.oneMonth !== undefined && (
                 <>
