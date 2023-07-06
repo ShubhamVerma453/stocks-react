@@ -31,7 +31,11 @@ input:focus {
     opacity: 0;
 }
 
-tr:hover button {
+.table-row:hover{
+    cursor: pointer;
+}
+
+.table-row:hover .remove-btn {
     opacity: 1;
 }
 

@@ -65,7 +65,7 @@ const StockList = () => {
                 <tbody>
                     {watchListDetail.map(stock => {
                         return (
-                            <tr key={stock.symbol} onClick={() => handelRowClick(stock.symbol)}>
+                            <tr key={stock.symbol} className="table-row" onClick={() => handelRowClick(stock.symbol)}>
                                 <th scope="row">{stock.symbol}</th>
                                 <td>{stock.data.c}</td>
                                 <td>{stock.data.pc}</td>
@@ -73,11 +73,11 @@ const StockList = () => {
                                 <td className={`text-${stock.data.d > 0 ? "success" : "danger"}`}>{stock.data.dp}</td>
                                 <td>{stock.data.h}</td>
                                 <td>{stock.data.l}</td>
-                                <td onClick={(e) => {
-                                    e.stopPropagation();
-                                    deleteFromWatchList(stock.symbol)
-                                }}>
-                                    <button type="button" className='btn btn-danger remove-btn'>Remove</button>
+                                <td >
+                                    <button type="button" className='btn btn-danger remove-btn' onClick={(e) => {
+                                        e.stopPropagation();
+                                        deleteFromWatchList(stock.symbol)
+                                    }}>Remove</button>
                                 </td>
                             </tr>
                         )
