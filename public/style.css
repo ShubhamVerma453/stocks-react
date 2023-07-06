@@ -27,16 +27,8 @@ input:focus {
     cursor: pointer;
 }
 
-.remove-btn {
-    opacity: 0;
-}
-
 .table-row:hover{
     cursor: pointer;
-}
-
-.table-row:hover .remove-btn {
-    opacity: 1;
 }
 
 .remove-btn {
