@@ -7,7 +7,7 @@ export const StockChart = (props) => {
     const { oneMonth, sixMonth, oneYear } = chartData;
     // console.log(oneMonth);
     const [showFormate, setShowFormate] = useState("1M");
-    
+
     const determinShow = () => {
         switch (showFormate) {
             case "1M":
@@ -24,17 +24,18 @@ export const StockChart = (props) => {
     const chartColor = () => {
         // console.log(oneMonth)
         const data = determinShow();
-        let start = data[0].y;
-        let end = data[(data.length - 1)].y;
-        return end-start > 0 ? ["#38E54D"] : ["#F44336"]
+        return (data[(data.length - 1)].y) - (data[0].y) > 0 ? ["#38E54D"] : ["#F44336"]
     }
     const option = {
-        colors : chartColor(),
+        colors: chartColor(),
         title: {
             text: currStock,
             align: "center",
         },
         chart: {
+            toolbar: {
+                show: false
+            },
             enabled: true,
             type: "area",
             id: "stock chart",
@@ -50,9 +51,9 @@ export const StockChart = (props) => {
         name: currStock,
         data: determinShow()
     }]
-    
+
     const buttonFormate = (button) => {
-        if(button === showFormate)
+        if (button === showFormate)
             return "btn btn-sm m-2 btn-primary"
         return "btn btn-sm m-2 btn-outline-primary"
     }
